@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Noto Sans SC";
+        src: local("Noto Sans SC");
+      }
+      @font-face {
+        font-family: "PingFang SC";
+        src: local("PingFang SC");
+      }
+      @font-face {
+        font-family: "Microsoft YaHei";
+        src: local("Microsoft YaHei");
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: local("Consolas");
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #eceae4;
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        color: #1d1d1f;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+      #scene2,
+      #scene3,
+      #scene4,
+      #scene5 {
+        opacity: 0;
+      }
+      .scene-content {
+        width: 100%;
+        height: 100%;
+        padding: 140px 160px 140px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .content-col {
+        max-width: 1600px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 36px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 30px;
+        font-weight: 700;
+        color: #8a8f98;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 8px;
+        border-radius: 999px;
+        background: #f59e0b;
+      }
+      .hero {
+        font-size: 94px;
+        line-height: 1.2;
+        font-weight: 900;
+      }
+      .sub {
+        font-size: 40px;
+        font-weight: 600;
+        color: #5a5f68;
+        line-height: 1.45;
+      }
+      .accent {
+        color: #f59e0b;
+      }
+      .card {
+        background: #ffffff;
+        border: 2px solid #e4e1d8;
+        border-radius: 28px;
+        padding: 42px 50px;
+      }
+      .late {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="news-video"
+      data-start="0"
+      data-duration="60"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="scene1" class="scene">
+        <div class="scene-content">
+          <div class="content-col">
+            <div class="eyebrow" id="s1-eyebrow">栏目名</div>
+            <h1 class="hero" id="s1-title">主标题 <span class="accent">强调词</span></h1>
+            <p class="sub" id="s1-sub">一句话概括</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="scene2" class="scene">
+        <div class="scene-content">
+          <div class="content-col">
+            <div class="eyebrow" id="s2-eyebrow">第二节眉题</div>
+            <h1 class="hero" id="s2-title">第二节标题</h1>
+            <p class="sub late" id="s2-sub">按旁白延迟出现的说明</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="scene3" class="scene">
+        <div class="scene-content">
+          <div class="content-col">
+            <div class="eyebrow" id="s3-eyebrow">第三节眉题</div>
+            <h1 class="hero" id="s3-title">第三节标题</h1>
+            <div class="card late" id="s3-card">卡片内容，记得给内容列保留 36px 间距</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="scene4" class="scene">
+        <div class="scene-content">
+          <div class="content-col">
+            <div class="eyebrow" id="s4-eyebrow">第四节眉题</div>
+            <h1 class="hero" id="s4-title">对比 / 数据标题</h1>
+            <div class="card late" id="s4-card">数据卡片</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="scene5" class="scene">
+        <div class="scene-content">
+          <div class="content-col">
+            <div class="eyebrow" id="s5-eyebrow">总结眉题</div>
+            <h1 class="hero" id="s5-title">结论标题</h1>
+            <p class="sub late" id="s5-sub">关注 / 行动号召</p>
+          </div>
+        </div>
+      </div>
+
+      <!--
+        音频：把 narration.wav 放进项目根目录后取消注释
+        <audio id="el-audio" data-start="0" data-duration="60" data-track-index="10"
+               src="narration.wav" data-volume="1"></audio>
+      -->
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.from("#s1-eyebrow", { y: 18, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.25);
+      tl.from("#s1-title", { y: 42, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.45);
+      tl.from("#s1-sub", { y: 26, opacity: 0, duration: 0.45, ease: "power2.out" }, 0.85);
+
+      tl.to("#scene1", { opacity: 0, duration: 0.25, ease: "power2.in" }, 10);
+      tl.set("#scene1", { visibility: "hidden" }, 10.25);
+      tl.fromTo("#scene2", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 10.3);
+      tl.from("#s2-eyebrow", { y: 18, opacity: 0, duration: 0.35, ease: "power2.out" }, 10.3);
+      tl.from("#s2-title", { y: 36, opacity: 0, duration: 0.55, ease: "power3.out" }, 10.6);
+      tl.fromTo("#s2-sub", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 13.0);
+
+      tl.to("#scene2", { opacity: 0, duration: 0.25, ease: "power2.in" }, 20);
+      tl.set("#scene2", { visibility: "hidden" }, 20.25);
+      tl.fromTo("#scene3", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 20.3);
+      tl.from("#s3-eyebrow", { y: 18, opacity: 0, duration: 0.35, ease: "power2.out" }, 20.3);
+      tl.from("#s3-title", { y: 36, opacity: 0, duration: 0.55, ease: "power3.out" }, 20.6);
+      tl.fromTo("#s3-card", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 23.0);
+
+      tl.to("#scene3", { opacity: 0, duration: 0.25, ease: "power2.in" }, 30);
+      tl.set("#scene3", { visibility: "hidden" }, 30.25);
+      tl.fromTo("#scene4", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 30.3);
+      tl.from("#s4-eyebrow", { y: 18, opacity: 0, duration: 0.35, ease: "power2.out" }, 30.3);
+      tl.from("#s4-title", { y: 36, opacity: 0, duration: 0.55, ease: "power3.out" }, 30.6);
+      tl.fromTo("#s4-card", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 33.0);
+
+      tl.to("#scene4", { opacity: 0, duration: 0.25, ease: "power2.in" }, 40);
+      tl.set("#scene4", { visibility: "hidden" }, 40.25);
+      tl.fromTo("#scene5", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 40.3);
+      tl.from("#s5-eyebrow", { y: 18, opacity: 0, duration: 0.35, ease: "power2.out" }, 40.3);
+      tl.from("#s5-title", { y: 36, opacity: 0, duration: 0.55, ease: "power3.out" }, 40.6);
+      tl.fromTo("#s5-sub", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 43.0);
+
+      tl.to("#scene5", { opacity: 0, duration: 0.8, ease: "power1.in" }, 59);
+      tl.set("#scene5", { visibility: "hidden" }, 59.8);
+
+      window.__timelines["news-video"] = tl;
+    </script>
+  </body>
+</html>

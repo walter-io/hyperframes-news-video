@@ -1,0 +1,8 @@
+interface:
+  display_name: "HyperFrames 新闻视频动效"
+  short_description: "反推并重建编辑风科技新闻动画"
+  brand_color: "#F59E0B"
+  default_prompt: "用 $hyperframes-news-video 把这个带旁白的视频做成科技新闻动效版，先出 HTML 预览图，确认后再渲染。"
+
+policy:
+  allow_implicit_invocation: true
