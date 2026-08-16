@@ -12,6 +12,26 @@
 
 详细说明见 [references/output-modes.md](references/output-modes.md)。
 
+## 示例视频
+
+`示例.mp4` 是本 skill 自带的示例素材：23.8 秒、1920x1080、30fps，带旁白，可以直接用来测试整套流程。
+
+发布到 GitHub 后，可以在仓库页直接播放：
+
+<video controls src="https://github.com/user-attachments/assets/b48fb813-57f9-4d86-a38a-3a53f02f3de9"></video>
+
+试用反推分析：
+
+```bash
+python scripts/analyze_source.py 示例.mp4 analysis --language zh
+```
+
+也可以直接对 Codex 说：
+
+```text
+用 示例.mp4 做一版动效解说版，先出预览图
+```
+
 ## 安装
 
 ### 1. 安装 skill
@@ -121,25 +141,6 @@ npx hyperframes snapshot --output previews --at 2.5,7.5,16,23 --no-end
 npx hyperframes render --quality standard --output renders/final.mp4
 ```
 
-## 示例视频
-
-`示例.mp4` 是本 skill 自带的示例素材：23.8 秒、1920x1080、30fps，带旁白，可以直接用来测试整套流程。
-
-发布到 GitHub 后，可以在仓库页直接播放：
-
-<video controls src="https://github.com/user-attachments/assets/b48fb813-57f9-4d86-a38a-3a53f02f3de9"></video>
-
-试用反推分析：
-
-```bash
-python scripts/analyze_source.py 示例.mp4 analysis --language zh
-```
-
-也可以直接对 Codex 说：
-
-```text
-用 示例.mp4 做一版动效解说版，先出预览图
-```
 
 ## 目录结构
 
