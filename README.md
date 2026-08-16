@@ -125,7 +125,9 @@ npx hyperframes render --quality standard --output renders/final.mp4
 
 发布到 GitHub 后，可以在仓库页直接播放：
 
-<video controls width="640" src="示例.mp4"></video>
+![示例视频](https://raw.githubusercontent.com/walter-io/hyperframes-news-video/main/示例.mp4)
+
+如果上方无法播放，请把 `示例.mp4` 下载到本地后使用。
 
 试用反推分析：
 
@@ -139,12 +141,6 @@ python scripts/analyze_source.py 示例.mp4 analysis --language zh
 用 示例.mp4 做一版动效解说版，先出预览图
 ```
 
-## 联系我
-
-对 skill 有想法、遇到问题，或者想一起做视频，都可以加我微信：
-
-![微信二维码](微信二维码.jpg)
-
 ## 目录结构
 
 ```
@@ -156,6 +152,12 @@ assets/template/              # 可复用的 HyperFrames 起步模板
 示例.mp4                      # 示例素材
 微信二维码.jpg                 # 联系方式
 ```
+
+## 联系我
+
+对 skill 有想法、遇到问题，或者想一起做视频，都可以加我微信：
+
+<img src="微信二维码.jpg" alt="微信二维码" width="200" />
 
 ## 许可证
 
