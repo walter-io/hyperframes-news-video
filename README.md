@@ -127,9 +127,7 @@ npx hyperframes render --quality standard --output renders/final.mp4
 
 发布到 GitHub 后，可以在仓库页直接播放：
 
-![示例视频](https://raw.githubusercontent.com/walter-io/hyperframes-news-video/main/示例.mp4)
-
-如果上方无法播放，请把 `示例.mp4` 下载到本地后使用。
+<video controls src="https://github.com/user-attachments/assets/b48fb813-57f9-4d86-a38a-3a53f02f3de9"></video>
 
 试用反推分析：
 
